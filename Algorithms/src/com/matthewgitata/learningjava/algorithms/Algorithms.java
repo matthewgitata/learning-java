@@ -13,11 +13,7 @@ public class Algorithms {
         if (s == null || s.isEmpty()) {
             return s;
         }
-
-        StringBuilder reversed = new StringBuilder();
-        for (int i = s.length() - 1; i >= 0; i--) {
-            reversed.append(s.charAt(i));
-        }
-        return reversed.toString();
+        StringBuilder sb = new StringBuilder(s);
+        return sb.reverse().toString();
     }
 }
