@@ -1,8 +1,9 @@
 package com.matthewgitata.learningjava.arraylistexample;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
-public class ArrayListExample {
+public class VectorExample {
     public static void main(String[] args) {
         String[] platform1 = {"PS4"};
         String[] platform2 = new String[]{"3DS", "Wii U"};
@@ -10,11 +11,11 @@ public class ArrayListExample {
         VideoGame game2 = new VideoGame("Pokemon Sun", 2016, "E", platform2);
         VideoGame game3 = new VideoGame("The Legend of Zelda", 2017, "E", platform2);
 
-        ArrayList<VideoGame> games = new ArrayList<>();
-        games.add(game1);
-        games.add(game2);
-        games.add(0, game3);
-        System.out.println(games);
+        Vector<VideoGame> videoGames = new Vector<>();
+        videoGames.add(game1);
+        videoGames.add(game2);
+        videoGames.add(0, game3);
+        System.out.println(videoGames);
 
     }
 }
