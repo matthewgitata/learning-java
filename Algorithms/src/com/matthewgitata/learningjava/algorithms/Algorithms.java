@@ -3,21 +3,22 @@ package com.matthewgitata.learningjava.algorithms;
 public class Algorithms {
     public static void main(String[] args) {
         String s = "HeLLo";
-        System.out.println(s.contains("LL"));
-        parseContents(s);
+        System.out.println(isAtEvenIndex(s, 'L'));
+        System.out.println(isAtEvenIndex(s, 'T'));
+        System.out.println(isAtEvenIndex(s, 'o'));
+        System.out.println(isAtEvenIndex("", 'H'));
+        System.out.println(isAtEvenIndex(null, 'H'));
     }
 
-    public static void parseContents(String s) {
-        System.out.println("Option 1");
-        for (char c : s.toCharArray()) {
-            System.out.print(c);
+    public static boolean isAtEvenIndex(String s, char item) {
+        if (s == null || s.isEmpty()) {
+            return false;
         }
-
-        System.out.println();
-        System.out.println("Option 2");
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            System.out.print(c);
+        for (int i = 0; i < s.length(); i = i + 2) {
+            if (s.charAt(i) == item) {
+                return true;
+            }
         }
+        return false;
     }
 }
