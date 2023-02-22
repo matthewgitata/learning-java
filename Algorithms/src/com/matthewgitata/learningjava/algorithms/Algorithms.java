@@ -2,23 +2,22 @@ package com.matthewgitata.learningjava.algorithms;
 
 public class Algorithms {
     public static void main(String[] args) {
-        String s = "HeLLo";
-        System.out.println(isAtEvenIndex(s, 'L'));
-        System.out.println(isAtEvenIndex(s, 'T'));
-        System.out.println(isAtEvenIndex(s, 'o'));
-        System.out.println(isAtEvenIndex("", 'H'));
-        System.out.println(isAtEvenIndex(null, 'H'));
+        System.out.println(reverse(null));
+        System.out.println(reverse(""));
+        System.out.println(reverse("hello"));
+        System.out.println(reverse("tacos"));
+        System.out.println(reverse("Hi!"));
     }
 
-    public static boolean isAtEvenIndex(String s, char item) {
+    public static String reverse(String s) {
         if (s == null || s.isEmpty()) {
-            return false;
+            return s;
         }
-        for (int i = 0; i < s.length(); i = i + 2) {
-            if (s.charAt(i) == item) {
-                return true;
-            }
+
+        StringBuilder reversed = new StringBuilder();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            reversed.append(s.charAt(i));
         }
-        return false;
+        return reversed.toString();
     }
 }
