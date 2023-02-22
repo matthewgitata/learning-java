@@ -2,20 +2,17 @@ package com.matthewgitata.learningjava.algorithms;
 
 public class Algorithms {
     public static void main(String[] args) {
-        System.out.println(isUppercase("hello"));
-        System.out.println(isUppercase("HELLO"));
-
-        System.out.println(isLowercase("hello"));
-        System.out.println(isLowercase("HELLO"));
+        System.out.println(isPasswordComplex("Hell0"));
+        System.out.println(isPasswordComplex("Hello"));
+        System.out.println(isPasswordComplex("hellO"));
+        System.out.println(isPasswordComplex("HeLLo"));
+        System.out.println(isPasswordComplex("hello"));
+        System.out.println(isPasswordComplex(" "));
     }
 
-    public static boolean isUppercase(String s) {
-//        return s.chars().noneMatch(Character::isLowerCase);
-        return s.chars().allMatch(Character::isUpperCase);
-    }
-
-    public static boolean isLowercase(String s) {
-//        return s.chars().noneMatch(Character::isUpperCase);
-        return s.chars().allMatch(Character::isLowerCase);
+    public static boolean isPasswordComplex(String s) {
+        return s.chars().anyMatch(Character::isDigit) &&
+                s.chars().anyMatch(Character::isUpperCase) &&
+                s.chars().anyMatch(Character::isLowerCase);
     }
 }
