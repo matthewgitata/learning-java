@@ -1,19 +1,29 @@
 package com.matthewgitata.learningjava.algorithms;
 
+import java.util.ArrayList;
+
 public class Algorithms {
     public static void main(String[] args) {
-        System.out.println(reverse(null));
-        System.out.println(reverse(""));
-        System.out.println(reverse("hello"));
-        System.out.println(reverse("tacos"));
-        System.out.println(reverse("Hi!"));
+        System.out.println(reverseEachWord("Hello World"));
+        System.out.println(reverseEachWord("racer racecar madam"));
     }
 
-    public static String reverse(String s) {
+    public static String reverseEachWord(String s) {
         if (s == null || s.isEmpty()) {
             return s;
         }
-        StringBuilder sb = new StringBuilder(s);
-        return sb.reverse().toString();
+
+        StringBuilder result = new StringBuilder();
+        String[] arr = s.split(" ");
+        for (int i = 0; i < arr.length; i++) {
+            result.append(reverse(arr[i]));
+            if (i != arr.length - 1)
+                result.append(" ");
+        }
+        return result.toString();
+    }
+
+    public static String reverse(String s) {
+        return new StringBuilder(s).reverse().toString();
     }
 }
