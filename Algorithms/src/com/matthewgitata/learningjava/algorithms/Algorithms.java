@@ -1,34 +1,31 @@
 package com.matthewgitata.learningjava.algorithms;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class Algorithms {
     public static void main(String[] args) {
-        Employee employee = new Employee("Robby", 3827,
-                "Technology");
-        Employee employee2 = new Employee("Bobby", 9612,
-                "Marketing");
-        Employee employee3 = new Employee("Sally", 2519,
-                "Sales");
+        findMissingElements(new int[]{1, 2, 3, 4}, new int[]{1, 3})
+                .forEach(System.out::println);
 
-        HashMap<Integer, Employee> employeesById = new HashMap<>();
-        employeesById.put(employee.id, employee);
-        employeesById.put(employee2.id, employee2);
-        employeesById.put(employee3.id, employee3);
+        System.out.println();
 
-        Employee retrievedEmployee = employeesById.get(9612);
-        if (retrievedEmployee != null) {
-            System.out.println(retrievedEmployee.name + " : " + retrievedEmployee.department);
+        findMissingElements(new int[]{8, 0, 1, 7, 3}, new int[]{5, 7, 8, 0, 2})
+                .forEach(System.out::println);
+    }
+
+    public static List<Integer> findMissingElements(int[] first, int[] second) {
+        List<Integer> missingElements = new ArrayList<>();
+        HashSet<Integer> hashSet = new HashSet<>();
+        for (int x : second) {
+            hashSet.add(x);
         }
-
-        HashSet<String> productCodes = new HashSet<>();
-        productCodes.add("2T26B");
-        productCodes.add("9K42P");
-        productCodes.add("H5J781");
-
-        System.out.println(productCodes.contains("H5J781"));
-        System.out.println(productCodes.contains("9KTYP"));
-
+        for (int x : first) {
+            if (!hashSet.contains(x)) {
+                missingElements.add(x);
+            }
+        }
+        return missingElements;
     }
 }
