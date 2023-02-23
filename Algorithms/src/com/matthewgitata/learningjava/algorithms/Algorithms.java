@@ -1,28 +1,25 @@
 package com.matthewgitata.learningjava.algorithms;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
 public class Algorithms {
     public static void main(String[] args) {
-        printBinary(2);
-        printBinary(6);
-    }
+        Stack<String> stack = new Stack<>();
 
-    public static void printBinary(int n) {
-        if (n <= 0) {
-            System.out.println();
-            return;
-        }
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(1);
-        for (int i = 0; i < n; i++) {
-            int current = queue.remove();
-            System.out.println(current);
+        System.out.println("START main");
+        stack.push("main");
 
-            queue.add(current * 10);
-            queue.add(current * 10 + 1);
-        }
-        System.out.println();
+        System.out.println("START builder");
+        stack.push("builder");
+
+        System.out.println("START external-service");
+        stack.push("external-service");
+        System.out.println("END: " + stack.pop());
+
+        System.out.println("START parse-external-data");
+        stack.push("parse-external-data");
+        System.out.println("END: " + stack.pop());
+        System.out.println("END: " + stack.pop());
+        System.out.println("END: " + stack.pop());
     }
 }
