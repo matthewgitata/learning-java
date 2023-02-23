@@ -1,26 +1,32 @@
 package com.matthewgitata.learningjava.algorithms;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Algorithms {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6};
-        System.out.println(binarySearch(new int[]{}, 0));
-        System.out.println(binarySearch(arr, 5));
-        System.out.println(binarySearch(arr, 8));
+        int[] arr1 = {-9, 3, 2, -8, 12, -16};
+        int[] arr2 = {0, -3, -8, -35, 40, 20, 7};
+        Arrays.stream(findEvenNums(arr1, arr2))
+                .forEach(System.out::println);
     }
 
-    public static boolean binarySearch(int[] arr, int item) {
-        int min = 0;
-        int max = arr.length - 1;
-        while (min <= max) {
-            int mid = (min + max) / 2;
-            if (arr[mid] == item) {
-                return true;
-            } else if (item < arr[mid]) {
-                max = mid - 1;
-            } else {
-                min = mid + 1;
+    private static int[] findEvenNums(int[] arr1, int[] arr2) {
+        ArrayList<Integer> evens = new ArrayList<>();
+        for (int i : arr1) {
+            if (i % 2 == 0) {
+                evens.add(i);
             }
         }
-        return false;
+        for (int i : arr2) {
+            if (i % 2 == 0) {
+                evens.add(i);
+            }
+        }
+        int[] result = new int[evens.size()];
+        for (int i = 0; i < evens.size(); i++) {
+            result[i] = evens.get(i);
+        }
+        return result;
     }
 }
