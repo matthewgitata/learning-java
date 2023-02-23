@@ -4,28 +4,21 @@ import java.util.Arrays;
 
 public class Algorithms {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6};
-        Arrays.stream(reverse(arr)).
-                forEach(System.out::println);
-        System.out.println();
-        reverseInPlace(arr);
-        Arrays.stream((arr))
-                .forEach(System.out::println);
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
+        rotateInPlace(arr);
+        Arrays.stream(arr)
+                .forEach(System.out::print);
     }
 
-    private static int[] reverse(int[] arr) {
-        int[] result = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            result[i] = arr[result.length - 1 - i];
-        }
-        return result;
-    }
-
-    public static void reverseInPlace(int[] arr) {
-        for (int i = 0; i < arr.length / 2; i++) {
-            int temp = arr[i];
-            arr[i] = arr[arr.length - 1 - i];
-            arr[arr.length - 1 - i] = temp;
+    private static void rotateInPlace(int[] arr) {
+        int temp = arr[0];
+        arr[0] = arr[arr.length - 1];
+        arr[arr.length - 1] = temp;
+        for (int i = 1; i < arr.length - 2; i++) {
+            int shiftedIndex = i + 1;
+            int temp2 = arr[i];
+            arr[i] = arr[shiftedIndex];
+            arr[shiftedIndex] = temp2;
         }
     }
 }
