@@ -13,8 +13,9 @@ public class Algorithms {
         secondNode.next = thirdNode;
         thirdNode.next = fourthNode;
 
-        linkedList.displayContents();
-        linkedList.deleteBackHalf();
+//        linkedList.displayContents();
+//        linkedList.deleteBackHalf();
+        linkedList.deleteKthNodeFromEnd(1);
         linkedList.displayContents();
     }
 }

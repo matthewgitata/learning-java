@@ -2,6 +2,7 @@ package com.matthewgitata.learningjava.algorithms;
 
 public class CustomLinkedList {
     Node head;
+    int size;
 
     public void displayContents() {
         Node current = head;
@@ -26,5 +27,27 @@ public class CustomLinkedList {
             slow = slow.next;
         }
         prev.next = null;
+    }
+
+    public void deleteKthNodeFromEnd(int k) {
+        if (head != null && k != 0) {
+            Node first = head;
+            Node second = head;
+            for (int i = 0; i < k; i++) {
+                second = second.next;
+                if (second.next == null) {
+                    //K>=length of list
+                    if (i == k - 1) {
+                        head = head.next;
+                    }
+                    return;
+                }
+            }
+            while (second.next != null) {
+                first = first.next;
+                second = second.next;
+            }
+            first.next = first.next.next;
+        }
     }
 }
