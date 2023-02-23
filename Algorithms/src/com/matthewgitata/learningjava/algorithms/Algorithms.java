@@ -4,22 +4,38 @@ import java.util.Stack;
 
 public class Algorithms {
     public static void main(String[] args) {
-        Stack<String> stack = new Stack<>();
+        int[] arr = {16, 7, 2, 15};
+        printNextGreaterElement(arr);
+    }
 
-        System.out.println("START main");
-        stack.push("main");
+    public static void printNextGreaterElement(int[] arr) {
+        if (arr.length == 0) {
+            System.out.println();
+            return;
+        }
+        Stack<Integer> stack = new Stack<>();
+        stack.push(arr[0]);
 
-        System.out.println("START builder");
-        stack.push("builder");
+        for (int i = 1; i < arr.length; i++) {
+            int next = arr[i];
+            if (!stack.isEmpty()) {
+                int popped = stack.pop();
+                while (popped < next) {
+                    System.out.println(popped + " --> " + next);
+                    if (stack.isEmpty()) {
+                        break;
+                    }
+                    popped = stack.pop();
+                }
 
-        System.out.println("START external-service");
-        stack.push("external-service");
-        System.out.println("END: " + stack.pop());
-
-        System.out.println("START parse-external-data");
-        stack.push("parse-external-data");
-        System.out.println("END: " + stack.pop());
-        System.out.println("END: " + stack.pop());
-        System.out.println("END: " + stack.pop());
+                if (popped > next) {
+                    stack.push(popped);
+                }
+            }
+            stack.push(next);
+        }
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop() + " --> " + -1);
+        }
     }
 }
