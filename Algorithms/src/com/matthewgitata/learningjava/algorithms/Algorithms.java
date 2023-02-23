@@ -1,18 +1,26 @@
 package com.matthewgitata.learningjava.algorithms;
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.OptionalInt;
-
 public class Algorithms {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6};
-        System.out.println(linearSearch(new int[]{}, 0));
-        System.out.println(linearSearch(arr, 5));
-        System.out.println(linearSearch(arr, 8));
+        System.out.println(binarySearch(new int[]{}, 0));
+        System.out.println(binarySearch(arr, 5));
+        System.out.println(binarySearch(arr, 8));
     }
 
-    private static OptionalInt linearSearch(int[] arr, int item) {
-        return Arrays.stream(arr).filter(x -> x == item).findFirst();
+    public static boolean binarySearch(int[] arr, int item) {
+        int min = 0;
+        int max = arr.length - 1;
+        while (min <= max) {
+            int mid = (min + max) / 2;
+            if (arr[mid] == item) {
+                return true;
+            } else if (item < arr[mid]) {
+                max = mid - 1;
+            } else {
+                min = mid + 1;
+            }
+        }
+        return false;
     }
 }
