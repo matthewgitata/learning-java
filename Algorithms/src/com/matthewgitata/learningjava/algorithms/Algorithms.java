@@ -1,27 +1,18 @@
 package com.matthewgitata.learningjava.algorithms;
 
-import java.util.LinkedList;
-
 public class Algorithms {
     public static void main(String[] args) {
-        LinkedList<String> stringLinkedList = new LinkedList<>();
-        stringLinkedList.add("Sally");
-        stringLinkedList.add("Becky");
-        stringLinkedList.add("Nicky");
-        stringLinkedList.add("Jack");
-        stringLinkedList.add("Rachel");
+        CustomLinkedList linkedList = new CustomLinkedList();
+        Node firstNode = new Node(3);
+        Node secondNode = new Node(4);
+        Node thirdNode = new Node(5);
+        Node fourthNode = new Node(6);
 
-        System.out.println(stringLinkedList.contains("Becky"));
-        System.out.println(stringLinkedList.size());
+        linkedList.head = firstNode;
+        firstNode.next = secondNode;
+        secondNode.next = thirdNode;
+        thirdNode.next = fourthNode;
 
-        stringLinkedList.removeFirst();
-
-        for (String s : stringLinkedList) {
-            System.out.print(s + "->");
-        }
-
-        System.out.println();
-
-        stringLinkedList.forEach(x -> System.out.print(x + "->"));
+        linkedList.displayContents();
     }
 }
