@@ -1,21 +1,24 @@
 package com.matthewgitata.learningjava.algorithms;
 
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class Algorithms {
     public static void main(String[] args) {
-        CustomLinkedList linkedList = new CustomLinkedList();
-        Node firstNode = new Node(3);
-        Node secondNode = new Node(4);
-        Node thirdNode = new Node(5);
-        Node fourthNode = new Node(6);
+        Queue<Integer> queue = new PriorityQueue<>();
+        queue.add(2);
+        queue.add(3);
+        queue.add(19);
+        queue.add(20);
 
-        linkedList.head = firstNode;
-        firstNode.next = secondNode;
-        secondNode.next = thirdNode;
-        thirdNode.next = fourthNode;
+        int removedItem = queue.remove();
+        System.out.println(removedItem);
+        System.out.println(queue.remove());
+        System.out.println(queue.peek());
 
-//        linkedList.displayContents();
-//        linkedList.deleteBackHalf();
-        linkedList.deleteKthNodeFromEnd(1);
-        linkedList.displayContents();
+        while (!queue.isEmpty()) {
+            System.out.println(queue.remove());
+        }
     }
 }
