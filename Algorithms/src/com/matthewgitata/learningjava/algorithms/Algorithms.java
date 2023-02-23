@@ -1,37 +1,27 @@
 package com.matthewgitata.learningjava.algorithms;
 
-import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Algorithms {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
-        rotateArrayLeft(arr);
-        Arrays.stream(arr)
-                .forEach(System.out::print);
-        System.out.println();
-        rotateArrayRight(arr);
-        Arrays.stream(arr)
-                .forEach(System.out::print);
-        System.out.println();
-    }
+        LinkedList<String> stringLinkedList = new LinkedList<>();
+        stringLinkedList.add("Sally");
+        stringLinkedList.add("Becky");
+        stringLinkedList.add("Nicky");
+        stringLinkedList.add("Jack");
+        stringLinkedList.add("Rachel");
 
-    private static void rotateArrayLeft(int[] arr) {
-        int temp = arr[0];
-        for (int i = 0; i < arr.length - 1; i++) {
-            int shiftedIndex = i + 1;
-            arr[i] = arr[shiftedIndex];
+        System.out.println(stringLinkedList.contains("Becky"));
+        System.out.println(stringLinkedList.size());
+
+        stringLinkedList.removeFirst();
+
+        for (String s : stringLinkedList) {
+            System.out.print(s + "->");
         }
-        arr[arr.length - 1] = temp;
 
-    }
+        System.out.println();
 
-    private static void rotateArrayRight(int[] arr) {
-        int temp = arr[arr.length - 1];
-        for (int i = arr.length -1; i > 0; i--) {
-            int shiftedIndex = i - 1;
-            arr[i] = arr[shiftedIndex];
-        }
-        arr[0] = temp;
-
+        stringLinkedList.forEach(x -> System.out.print(x + "->"));
     }
 }
