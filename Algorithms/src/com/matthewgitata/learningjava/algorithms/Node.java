@@ -1,11 +1,7 @@
 package com.matthewgitata.learningjava.algorithms;
 
 public class Node {
-    public int data;
-    public Node next;
-
-    public Node(int data) {
-        this.data = data;
-    }
-
+    int data;
+    Node left;
+    Node right;
 }
